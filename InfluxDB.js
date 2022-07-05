@@ -13,7 +13,7 @@
                     client.setRequestHeader('Content-Type', 'text/plain; charset=utf-8');
                     client.setRequestHeader('Accept','application/json');
                     	client.onerror = function(e) { // происходит, только когда запрос совсем не получилось выполнить
-                    	  log_error('Connection error for url ['+influxdbUrl+']. e: ' + e + ', e.target.status: ' + e.target.status);
+                    	  logError('Connection error for url ['+influxdbUrl+']. e: ' + e + ', e.target.status: ' + e.target.status);
                     	};
 client.onprogress = function(event) { // запускается периодически
                     	  // event.loaded - количество загруженных байт
@@ -37,7 +37,7 @@ client.onprogress = function(event) { // запускается периодич
                         }else if(client.readyState===XMLHttpRequest.LOADING){
                         	log('Loaded '+event.loaded+' from '+event.total);
                         }else{
-                        	log_error("["+XMLHttpRequest.DONE+"] client.state: " + client.readyState + ", client.status: " + client.status);
+                        	logError("["+XMLHttpRequest.DONE+"] client.state: " + client.readyState + ", client.status: " + client.status);
                         }
                     };
                    
@@ -45,6 +45,6 @@ client.onprogress = function(event) { // запускается периодич
                     log('sent metric: ' + metric);
                     client.send(metric);
         	}catch(err){
-        		log_error('Exception on influxdbSend2', e);
+        		logError('Exception on influxdbSend2', e);
         	}
          }
