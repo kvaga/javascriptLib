@@ -1,5 +1,5 @@
 
-        function influxdbSend2(metric, influxdbUrl, influxdbToken){
+        function influxdbSend2(metric, influxdbUrl, influxdbToken, log, logError){
         	try{
                 	let client = new XMLHttpRequest();
 
