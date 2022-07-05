@@ -1,9 +1,9 @@
 
         function influxdbSend2(metric, influxdbUrl, influxdbToken, log, logError){
         	try{
-                        log(`metric: ${metric}`);
-                        log(`influxdbUrl: ${influxdbUrl}`);
-                        log(`influxdbToken: ${influxdbToken}`);
+                       // log(`metric: ${metric}`);
+                       // log(`influxdbUrl: ${influxdbUrl}`);
+                       // log(`influxdbToken: ${influxdbToken}`);
 
                 	let client = new XMLHttpRequest();
 
@@ -12,6 +12,8 @@
                 	//   2. set policy  access for your full url and set 'allow subdomain' to 'true'
                     var html = '';
                     /* Assign request type and server path */
+                                                                log(`point 1`);
+
                     client.open("POST", influxdbUrl, true);
         			client.setRequestHeader('Authorization', 'Token '+influxdbToken);
                     client.setRequestHeader('Content-Type', 'text/plain; charset=utf-8');
@@ -25,7 +27,6 @@ client.onprogress = function(event) { // запускается периодич
                     	  // event.total - количество байт всего (только если lengthComputable равно true)
                     	  log('Loaded '+event.loaded+' from '+event.total);
                     	};
-                                        log(`point 1`);
 
                     client.onreadystatechange = function() {//Вызывает функцию при смене состояния. 
                         if(client.readyState === XMLHttpRequest.DONE) { 
