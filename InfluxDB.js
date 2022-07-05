@@ -1,16 +1,15 @@
-const influxdbUrl=widget.preferences.getItem('influxdb.url');
-        let client = new XMLHttpRequest();
 
-        function influxdbSend2(metric/*, value*/){
+        function influxdbSend2(metric, influxdbUrl, influxdbToken){
         	try{
-                	
+                	let client = new XMLHttpRequest();
+
                     // Important: you must 
                 	//   1. add 'internet' privilege in the config.xml
                 	//   2. set policy  access for your full url and set 'allow subdomain' to 'true'
                     var html = '';
                     /* Assign request type and server path */
                     client.open("POST", influxdbUrl, true);
-        			client.setRequestHeader('Authorization', 'Token '+widget.preferences.getItem('influxdb.token'));
+        			client.setRequestHeader('Authorization', 'Token '+influxdbToken);
                     client.setRequestHeader('Content-Type', 'text/plain; charset=utf-8');
                     client.setRequestHeader('Accept','application/json');
                     	client.onerror = function(e) { // происходит, только когда запрос совсем не получилось выполнить
