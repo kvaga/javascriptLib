@@ -6,13 +6,15 @@
                        // log(`influxdbToken: ${influxdbToken}`);
 
                 	let client = new XMLHttpRequest();
+                                                               
+                       
+                        log("point 1");
 
                     // Important: you must 
                 	//   1. add 'internet' privilege in the config.xml
                 	//   2. set policy  access for your full url and set 'allow subdomain' to 'true'
                     var html = '';
                     /* Assign request type and server path */
-                                                                log(`point 1`);
 
                     client.open("POST", influxdbUrl, true);
         			client.setRequestHeader('Authorization', 'Token '+influxdbToken);
