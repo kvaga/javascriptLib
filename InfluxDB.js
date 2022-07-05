@@ -25,7 +25,8 @@ client.onprogress = function(event) { // запускается периодич
                     	  // event.total - количество байт всего (только если lengthComputable равно true)
                     	  log('Loaded '+event.loaded+' from '+event.total);
                     	};
-                    
+                                        log(`point 1`);
+
                     client.onreadystatechange = function() {//Вызывает функцию при смене состояния. 
                         if(client.readyState === XMLHttpRequest.DONE) { 
                         	if(client.status === 200 || client.status === 204){
@@ -44,7 +45,7 @@ client.onprogress = function(event) { // запускается периодич
                         	logError("["+XMLHttpRequest.DONE+"] client.state: " + client.readyState + ", client.status: " + client.status);
                         }
                     };
-                   
+
                     metric = metric + ' ' + Math.floor( new Date() / 1000 )+'000000000';
                     log('sent metric: ' + metric);
                     client.send(metric);
