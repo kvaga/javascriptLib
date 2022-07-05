@@ -45,6 +45,6 @@ client.onprogress = function(event) { // запускается периодич
                     log('sent metric: ' + metric);
                     client.send(metric);
         	}catch(err){
-        		logError('Exception on influxdbSend2', e);
+        		logError('Exception on influxdbSend2', err);
         	}
          }
