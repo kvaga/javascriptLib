@@ -1,6 +1,10 @@
 
         function influxdbSend2(metric, influxdbUrl, influxdbToken, log, logError){
         	try{
+                        log(`metric: {metric}`);
+                        log(`influxdbUrl: {influxdbUrl}`);
+                        log(`influxdbToken: {influxdbToken}`);
+
                 	let client = new XMLHttpRequest();
 
                     // Important: you must 
